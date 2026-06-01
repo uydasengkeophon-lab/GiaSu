@@ -147,10 +147,13 @@ class Tutor
 
         $query = "SELECT t.*, u.username, u.email,
                          COUNT(DISTINCT b.student_id) AS student_count,
+                         (SELECT GROUP_CONCAT(DISTINCT CONCAT(l.thu_trong_tuan, '-', l.phien_hoc) ORDER BY l.thu_trong_tuan, l.phien_hoc)
+                          FROM lich_hoc_hang_tuan l
+                          WHERE l.gia_su = t.id AND l.trang_thai = 1) AS list_lich_co_dinh,
                          COALESCE(SUM(CASE WHEN b.status IN ('paid', 'approved') THEN b.amount ELSE 0 END), 0) AS total_revenue
                   FROM {$this->tableName} t
                   INNER JOIN users u ON t.user_id = u.id
-                  LEFT JOIN bookings b ON b.tutor_id = t.id
+                  LEFT JOIN bookings b ON b.tutor_id = t.id AND (b.status IS NULL OR b.status <> 'rejected')
                   WHERE " . implode(' AND ', $where) . "
                   GROUP BY t.id, u.username, u.email
                   ORDER BY t.id DESC{$limitSql}";
@@ -201,7 +204,7 @@ class Tutor
                          GROUP_CONCAT(DISTINCT CONCAT(l.thu_trong_tuan, '-', l.phien_hoc) ORDER BY l.thu_trong_tuan, l.phien_hoc) AS list_lich_co_dinh
                   FROM {$this->tableName} t
                   INNER JOIN users u ON t.user_id = u.id AND u.role = 'tutor'
-                  LEFT JOIN bookings b ON b.tutor_id = t.id AND b.status IN ('paid', 'approved')
+                  LEFT JOIN bookings b ON b.tutor_id = t.id AND (b.status IS NULL OR b.status <> 'rejected')
                   LEFT JOIN lich_hoc_hang_tuan l ON l.gia_su = t.id AND l.trang_thai = 1
                   GROUP BY t.id, u.username, u.email
                   ORDER BY student_count DESC, t.id DESC

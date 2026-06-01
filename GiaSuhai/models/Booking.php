@@ -20,10 +20,12 @@ class Booking
         return $stmt->rowCount() > 0;
     }
 
-    // ✅ Đếm số học sinh đã đăng ký thành công của gia sư
+    // ✅ Đếm số học sinh đã đăng ký với gia sư, trừ các đơn bị từ chối
     public function countSlots($tutor_id)
     {
-        $sql = "SELECT COUNT(*) as total FROM bookings WHERE tutor_id=? AND status = 'approved'";
+        $sql = "SELECT COUNT(DISTINCT student_id) as total
+                FROM bookings
+                WHERE tutor_id=? AND (status IS NULL OR status != 'rejected')";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([$tutor_id]);
         return $stmt->fetch(PDO::FETCH_ASSOC)['total'];

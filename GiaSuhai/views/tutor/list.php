@@ -11,13 +11,19 @@
             <?php 
             // 🔍 CƠ CHẾ DỰ PHÒNG THÔNG MINH (BYPASS FALLBACK):
             // Nếu biến kết nối phân quyền đăng nhập phức tạp từ Controller bị rỗng do tài khoản test lệch cấu trúc
+            if (empty($prominentTutors) && !empty($tutors)) {
+                $prominentTutors = $tutors;
+            }
+
             if (empty($prominentTutors)) {
                 $dbFallback = new Database();
                 $connFallback = $dbFallback->connect();
                 
                 // Quét trực tiếp lấy dữ liệu gốc từ bảng tutors và tự động đếm nối chuỗi lịch cố định
                 $sqlFallback = "SELECT t.*, 
-                                       (SELECT COUNT(*) FROM bookings b WHERE b.tutor_id = t.id) AS student_count,
+                                       (SELECT COUNT(DISTINCT b.student_id)
+                                        FROM bookings b
+                                        WHERE b.tutor_id = t.id AND (b.status IS NULL OR b.status <> 'rejected')) AS student_count,
                                        (SELECT GROUP_CONCAT(CONCAT(l.thu_trong_tuan, '-', l.phien_hoc)) 
                                         FROM lich_hoc_hang_tuan l 
                                         WHERE l.gia_su = t.id AND l.trang_thai = 1) AS list_lich_co_dinh
@@ -44,21 +50,9 @@
                         <div class="tutor-info-box" style="padding: 15px; width: 100%; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; box-sizing: border-box;">
                             
                             <?php 
-                                // 🔍 ĐỒNG BỘ: Đếm chính xác số lượng lịch lặp lại thực tế còn trống trong DB
-                                $tutorIdForCount = (int)($tutor['id'] ?? 0);
-                                $remaining = 0;
-
-                                if ($tutorIdForCount > 0) {
-                                    $dbObj = new Database();
-                                    $connObj = $dbObj->connect();
-                                    
-                                    // Đếm xem gia sư này có bao nhiêu khung giờ cố định đang ở trạng thái trống (hoc_vien = 0 hoặc NULL)
-                                    $sqlCountFree = "SELECT COUNT(*) FROM lich_hoc_hang_tuan 
-                                                     WHERE gia_su = :gs AND (hoc_vien = 0 OR hoc_vien IS NULL) AND trang_thai = 1";
-                                    $stmtCountFree = $connObj->prepare($sqlCountFree);
-                                    $stmtCountFree->execute([':gs' => $tutorIdForCount]);
-                                    $remaining = (int)$stmtCountFree->fetchColumn();
-                                }
+                                $maxSlots = 25;
+                                $currentStudents = isset($tutor['student_count']) ? (int)$tutor['student_count'] : 0;
+                                $remaining = max(0, $maxSlots - $currentStudents);
                             ?>
                             <div class="tutor-slot-status">
                                 <?php if ($remaining <= 0): ?>
