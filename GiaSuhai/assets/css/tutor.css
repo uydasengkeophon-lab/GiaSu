@@ -1,0 +1,333 @@
+.tutor-page {
+  padding: 40px 0;
+}
+
+.tutor-list-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.tutor-list-title h2 {
+  color: #4b2d7f;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.tutor-list-title p {
+  color: #666;
+}
+
+.tutor-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.tutor-list-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eee;
+}
+
+.tutor-image-wrap {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.tutor-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.tutor-list-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.tutor-slot-status {
+  margin-bottom: 10px;
+}
+
+.slot-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.status-full {
+  background: #dc3545;
+  text-transform: uppercase;
+}
+
+.status-open {
+  background: #28a745;
+}
+
+.tutor-list-name {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.tutor-list-subject {
+  color: #f80759;
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.tutor-list-bio {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  height: 42px;
+  overflow: hidden;
+}
+
+.tutor-list-rate {
+  font-size: 18px;
+  font-weight: 700;
+  color: #4b2d7f;
+  margin-bottom: 20px;
+}
+
+.tutor-cta-btn {
+  display: inline-block;
+  padding: 10px 25px;
+  background: #f80759;
+  color: #fff;
+  border-radius: 25px;
+  font-weight: 600;
+}
+
+.tutor-cta-btn.is-disabled {
+  background: #666;
+}
+
+.tutor-detail-page {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.tutor-detail-card {
+  display: flex;
+  gap: 40px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.tutor-detail-left {
+  flex: 1;
+  max-width: 350px;
+}
+
+.tutor-detail-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.tutor-detail-price-box {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.tutor-detail-rate {
+  color: #f80759;
+}
+
+.tutor-booking-form {
+  margin-top: 12px;
+}
+
+.tutor-booking-input-wrap {
+  margin-top: 10px;
+}
+
+.tutor-booking-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.tutor-booking-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  background: #f80759;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+}
+
+.tutor-booking-btn-disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.tutor-slot-left {
+  margin-top: 10px;
+  color: #16a34a;
+}
+
+.tutor-detail-right {
+  flex: 2;
+}
+
+.tutor-detail-name {
+  color: #4b2d7f;
+}
+
+.tutor-detail-subject {
+  background: #f80759;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+.tutor-detail-section {
+  margin-top: 30px;
+}
+
+.tutor-detail-back-wrap {
+  margin-top: 40px;
+}
+
+.tutor-detail-back {
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.tutor-profile-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tutor-profile-title {
+  color: #4b2d7f;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.tutor-profile-content {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.tutor-profile-img-wrap {
+  flex: 1;
+}
+
+.tutor-profile-img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tutor-profile-info {
+  flex: 2;
+}
+
+.tutor-profile-name {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #4b2d7f;
+}
+
+.tutor-profile-row {
+  margin-bottom: 10px;
+}
+
+.tutor-profile-rate {
+  color: #f80759;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.tutor-profile-divider {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.tutor-profile-bio {
+  color: #555;
+  line-height: 1.6;
+  background: #f9f9ff;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.tutor-profile-action {
+  margin-top: 30px;
+}
+
+.tutor-readonly-btn {
+  background: #666;
+  cursor: not-allowed;
+}
+
+.tutor-empty {
+  text-align: center;
+  color: #dc2626;
+}
+
+.text-danger {
+  color: #dc2626;
+}
+
+.tutor-form-page {
+  max-width: 760px;
+}
+
+.tutor-simple-form {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 20px;
+  display: grid;
+  gap: 10px;
+}
+
+.tutor-simple-form input,
+.tutor-simple-form textarea {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+@media (max-width: 900px) {
+  .tutor-detail-card,
+  .tutor-profile-content {
+    flex-direction: column;
+  }
+
+  .tutor-detail-left {
+    max-width: 100%;
+  }
+}

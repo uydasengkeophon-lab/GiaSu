@@ -1,0 +1,298 @@
+.schedule-page {
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+}
+
+.schedule-title {
+  margin-bottom: 16px;
+  color: #1e3a8a;
+}
+
+.alert {
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.alert-success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.alert-error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.calendar-box {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.form-container {
+  margin-bottom: 20px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.form-container h3 {
+  margin-bottom: 12px;
+  color: #0f172a;
+}
+
+.form-container form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.form-container input {
+  padding: 10px;
+  min-width: 170px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+.form-container select {
+  padding: 10px;
+  min-width: 170px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.form-container button {
+  padding: 10px 16px;
+  background: #1e3a8a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background: #1d4ed8;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.schedule-table th {
+  background: #1e3a8a;
+  color: #fff;
+  padding: 10px;
+}
+
+.schedule-table td {
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.schedule-table tr:hover {
+  background: #f8fafc;
+}
+
+.action-link {
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.action-delete {
+  color: #dc2626;
+}
+
+.action-disabled {
+  color: #64748b;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-official {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+.status-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-paid,
+.status-approved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-rejected {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.divider {
+  color: #94a3b8;
+  margin: 0 6px;
+}
+
+.empty-row {
+  text-align: center;
+  color: #b91c1c;
+}
+
+.weekly-timetable-panel {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 28px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.weekly-timetable-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.weekly-timetable-head span {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.weekly-timetable-head h3 {
+  margin: 4px 0 0;
+  color: #0f172a;
+}
+
+.weekly-timetable-head small {
+  color: #64748b;
+  font-weight: 700;
+}
+
+.weekly-timetable-grid {
+  display: grid;
+  grid-template-columns: 90px repeat(7, minmax(125px, 1fr));
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.weekly-corner,
+.weekly-day,
+.weekly-session,
+.weekly-cell {
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  min-height: 76px;
+}
+
+.weekly-corner,
+.weekly-day,
+.weekly-session {
+  background: #f8fafc;
+  color: #334155;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.weekly-cell {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  background: #fff;
+}
+
+.weekly-class-card {
+  border-radius: 8px;
+  padding: 8px;
+  display: grid;
+  gap: 3px;
+  border: 1px solid transparent;
+}
+
+.weekly-class-card strong {
+  color: #0f172a;
+  font-size: 13px;
+}
+
+.weekly-class-card span,
+.weekly-class-card em {
+  font-size: 12px;
+}
+
+.weekly-class-card em {
+  font-style: normal;
+  font-weight: 800;
+}
+
+.weekly-class-card.status-pending {
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+
+.weekly-class-card.status-paid,
+.weekly-class-card.status-approved {
+  background: #ecfdf5;
+  border-color: #bbf7d0;
+}
+
+.weekly-class-card.status-open {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.weekly-empty {
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .schedule-page {
+    width: 94%;
+  }
+
+  .form-container input {
+    min-width: 140px;
+  }
+
+  .form-container select {
+    min-width: 140px;
+  }
+
+  .weekly-timetable-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .weekly-timetable-grid {
+    grid-template-columns: 80px repeat(7, 145px);
+  }
+}
