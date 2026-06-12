@@ -20,6 +20,14 @@ $isActive = function ($prefixes) use ($currentUrl) {
    <link rel="stylesheet" href="/GiaSu/assets/css/style.css">
    <link rel="stylesheet" href="/GiaSu/assets/css/admin.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <script>
+      // Suppress errors from external scripts (gads-scraper, etc)
+      window.addEventListener('error', function(event) {
+         if (event.filename && event.filename.includes('gads-scraper')) {
+            event.preventDefault();
+         }
+      });
+   </script>
 </head>
 
 <body class="admin-body">

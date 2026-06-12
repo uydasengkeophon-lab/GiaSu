@@ -107,25 +107,29 @@ $formatSubject = function ($row) {
                 <p style="margin-bottom: 10px;">Quét mã QR bên dưới để chuyển khoản:</p>
 
                 <?php 
-                    $bankId = "ICB";
+                    $bankCode = "970415";  // VietinBank code
                     $accountNo = "108877541667";
                     $template = "compact2";
 
-                    $amount = $booking['amount'] ?? 0;
+                    $amount = (int)($booking['amount'] ?? 0);
                     $description = "Thanh toan don " . ($booking['id'] ?? '');
 
+                    // Build VietQR URL properly
+                    $params = [
+                        'amount' => $amount,
+                        'addInfo' => $description,
+                        'accountName' => 'APPCO CENTER'
+                    ];
+                    
                     $qrSource = "https://img.vietqr.io/image/" 
-                        . $bankId . "-" . $accountNo . "-" . $template 
-                        . ".png?amount=" . $amount
-                        . "&addInfo=" . urlencode($description)
-                        . "&accountName=" . urlencode("APPCO CENTER")
-                        . "&t=" . time();
+                        . $bankCode . "-" . $accountNo . "-" . $template 
+                        . ".png?" . http_build_query($params);
                 ?>
 
                 <img src="<?= $qrSource ?>"
                      alt="QR Code"
                      style="width: 250px; border: 1px solid #ddd; border-radius: 10px;"
-                     onerror="this.src='https://via.placeholder.com/250?text=QR+Error';">
+                     onerror="this.src='assets/images/placeholder.svg';">
 
                 <p style="font-size: 12px; color: #666; margin-top: 5px;">
                     Nội dung CK: <strong><?= htmlspecialchars($description) ?></strong>

@@ -29,7 +29,7 @@ $currentUserId = $_SESSION['user_id'] ?? $_SESSION['id'] ?? 0;
     <div style="display: flex; flex-wrap: wrap; gap: 30px; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #eee;">
         
         <div style="flex: 1; min-width: 280px; text-align: center; border-right: 1px solid #eee; padding-right: 20px;">
-            <img src="<?php echo !empty($tutor['avatar']) ? 'assets/uploads/' . $tutor['avatar'] : 'https://via.placeholder.com/150?text=Tutor'; ?>" 
+            <img src="<?php echo !empty($tutor['avatar']) ? 'assets/uploads/' . $tutor['avatar'] : 'assets/images/placeholder.svg'; ?>" 
                  alt="Avatar" style="width: 160px; height: 160px; object-fit: cover; border-radius: 50%; border: 4px solid #f0f2f5;">
             
             <h3 style="font-size: 24px; color: #333; margin: 15px 0 5px 0; font-weight: bold;"><?php echo htmlspecialchars($tutor['full_name']); ?></h3>

@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    <script>
+        // Suppress errors from external scripts (gads-scraper, etc)
+        window.addEventListener('error', function(event) {
+            if (event.filename && event.filename.includes('gads-scraper')) {
+                event.preventDefault();
+            }
+        });
+    </script>
 </head>
 
 <body>

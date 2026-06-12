@@ -19,7 +19,7 @@ if (!isset($myProfile)) {
             
             <div class="profile-img tutor-profile-img-wrap" style="flex: 1; min-width: 200px; text-align: center;">
                 <?php
-                $avatarSrc = !empty($myProfile['avatar']) ? 'assets/uploads/' . $myProfile['avatar'] : 'https://via.placeholder.com/300x300?text=Avatar';
+                $avatarSrc = !empty($myProfile['avatar']) ? 'assets/uploads/' . $myProfile['avatar'] : 'assets/images/placeholder.svg';
                 ?>
                 <img src="<?php echo $avatarSrc; ?>" alt="Avatar" class="tutor-profile-img" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; border: 4px solid #f0f2f5; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
             </div>
